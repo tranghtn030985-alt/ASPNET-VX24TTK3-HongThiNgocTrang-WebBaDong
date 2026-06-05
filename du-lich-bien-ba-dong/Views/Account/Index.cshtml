@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Đăng Nhập Hệ Thống";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/Views/Account/login.css")" />
+
+<div class="login-video-container">
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTF6bGhwb3lvdjl1Y2UxejV6bW1kMHV3djI0emg4dGxqaXNvdGpkNyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l4hLyOGRJWNSR8QQ8/giphy.gif" class="login-video-bg" alt="Sóng biển">
+</div>
+
+<div class="login-overlay"></div>
+
+<div class="login-wrapper">
+    <div class="login-glass-card text-center">
+        <h3 class="login-title text-uppercase mb-2">Đăng Nhập</h3>
+        <p class="login-subtitle mb-4">Vui lòng nhập tài khoản quản trị viên</p>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger py-2 text-start" style="font-size: 0.85rem; border-radius: 20px; background: rgba(220, 53, 69, 0.25); border: 1px solid rgba(220, 53, 69, 0.3); color: #ff9b9b; padding-left: 20px;">
+                <i class="fas fa-exclamation-circle me-2"></i> @ViewBag.Error
+            </div>
+        }
+
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { id = "loginForm" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="custom-input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" name="username" class="custom-form-control form-control" placeholder="Tên đăng nhập" required autocomplete="off" />
+            </div>
+
+            <div class="custom-input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="password" class="custom-form-control form-control" placeholder="Mật khẩu" required />
+            </div>
+
+            <button type="submit" class="btn-login text-uppercase mb-4">Đăng Nhập</button>
+        }
+
+        <a href="@Url.Action("Index", "Home")" class="back-to-home">
+            <i class="fas fa-arrow-left me-2"></i>Quay lại trang chủ
+        </a>
+    </div>
+</div>
+
+@section scripts {
+    <script src="@Url.Content("~/Views/Account/login.js")"></script>
+}

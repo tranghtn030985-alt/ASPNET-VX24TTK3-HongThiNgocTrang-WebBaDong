@@ -1,0 +1,318 @@
+﻿@{
+    ViewBag.Title = "Du Lịch Biển Ba Động - Trà Vinh";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/Views/Home/home.css")" />
+
+<main>
+    <section id="home">
+        <div id="homeCarousel" class="carousel slide carousel-fade h-100" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="false">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+
+            <div class="carousel-inner h-100">
+                <div class="carousel-item active h-100">
+                    <div class="slider-bg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920');"></div>
+                    <div class="carousel-caption d-flex flex-column justify-content-center h-100">
+                        <div class="container text-center">
+                            <h1 class="display-3 mb-3">BIỂN BA ĐỘNG</h1>
+                            <p class="lead mb-4">Khám phá vẻ đẹp hoang sơ, thơ mộng của viên ngọc bích xứ Trà Vinh</p>
+                            <a href="#news" class="btn btn-warning btn-lg px-4 text-white font-weight-bold">Xem tin tức mới nhất</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item h-100">
+                    <div class="slider-bg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1920');"></div>
+                    <div class="carousel-caption d-flex flex-column justify-content-center h-100">
+                        <div class="container text-center">
+                            <h1 class="display-3 mb-3">BÌNH MINH RỰC RỠ</h1>
+                            <p class="lead mb-4">Nơi đón những ánh nắng đầu tiên bình yên bên rặng phi lao xanh ngát</p>
+                            <a href="#news" class="btn btn-warning btn-lg px-4 text-white font-weight-bold">Khám phá ngay</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item h-100">
+                    <div class="slider-bg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?q=80&w=1920');"></div>
+                    <div class="carousel-caption d-flex flex-column justify-content-center h-100">
+                        <div class="container text-center">
+                            <h1 class="display-3 mb-3">ĐIỆN GIÓ ĐÔNG HẢI</h1>
+                            <p class="lead mb-4">Sự kết hợp hoàn hảo giữa công trình hiện đại và thiên nhiên bao la</p>
+                            <a href="#activities" class="btn btn-warning btn-lg px-4 text-white font-weight-bold">Xem điểm săn ảnh</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev custom-control" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next custom-control" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <section id="news" class="travel-section">
+        <div class="container text-center">
+            <h2 class="section-title mb-3">Tin Tức Du Lịch</h2>
+            <p class="text-muted mb-5">Cập nhật tin tức sự kiện, lễ hội và thông tin hoạt động mới nhất tại Biển Ba Động.</p>
+
+            <div class="row g-4">
+                <div class="col-md-4 reveal-card">
+                    <div class="card news-card news-card-clickable h-100"
+                         data-title="Khai mạc tuần lễ văn hóa ẩm thực và du lịch biển Ba Động 2026"
+                         data-date="01/06/2026"
+                         data-views="1,420"
+                         data-image="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80"
+                         data-content="<p>Chuỗi hoạt động văn hóa thể thao và hội chợ thương mại đặc sắc chính thức khai mạc, hứa hẹn thu hút hàng ngàn du khách thập phương đổ về Trà Vinh dịp hè này.</p><p>Sự kiện bao gồm các gian hàng trưng bày sản phẩm OCOP địa phương, hội thi ẩm thực các món ngon từ hải sản Duyên Hải và đêm nhạc hội hoành tráng trên bãi biển.</p><strong>Thời gian diễn ra:</strong> Từ 01/06/2026 đến hết 07/06/2026.<br><strong>Địa điểm:</strong> Quảng trường trung tâm Khu du lịch biển Ba Động.">
+                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" class="news-img card-img-top" alt="Tin tức lễ hội">
+                        <div class="card-body p-4 text-start">
+                            <div class="d-flex align-items-center text-muted small mb-2">
+                                <i class="far fa-calendar-alt me-2"></i> 01/06/2026
+                                <i class="far fa-eye ms-3 me-2"></i> 1,420 lượt xem
+                            </div>
+                            <h5 class="card-title fw-bold" style="line-height: 1.4;">
+                                <a href="javascript:void(0)" class="news-title-link">Khai mạc tuần lễ văn hóa ẩm thực và du lịch biển Ba Động 2026</a>
+                            </h5>
+                            <p class="card-text text-muted small" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Chuỗi hoạt động văn hóa thể thao và hội chợ thương mại đặc sắc chính thức khai mạc, hứa hẹn thu hút hàng ngàn du khách thập phương đổ về Trà Vinh dịp hè này...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 reveal-card">
+                    <div class="card news-card news-card-clickable h-100"
+                         data-title="Top 5 món ngon hải sản độc lạ phải thử khi ghé thăm Duyên Hải"
+                         data-date="28/05/2026"
+                         data-views="950"
+                         data-image="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80"
+                         data-content="<p>Khám phá danh sách những đặc sản nức tiếng vùng biển duyên hải từ chù ụ rang me béo ngậy, tôm sú oxy cho đến nghêu hai vòi ngọt lịm ngọt thịt.</p><ul><li><strong>Chù ụ rang me:</strong> Món ăn độc quyền chỉ có tại Trà Vinh với vỏ giòn rụm, thịt chắc nịch hòa quyện vị chua ngọt.</li><li><strong>Nghêu hấp sả:</strong> Nghêu Ba Động nổi tiếng với kích thước lớn, thịt dày và ngọt nước tự nhiên.</li><li><strong>Tôm sú nướng mọi:</strong> Bắt trực tiếp từ vuông tôm của người dân địa phương.</li></ul><p>Hãy lưu lại danh sách này để chuyến đi của bạn thêm phần trọn vẹn hương vị biển cả nhé!</p>">
+                        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=600&q=80" class="news-img card-img-top" alt="Tin tức đặc sản">
+                        <div class="card-body p-4 text-start">
+                            <div class="d-flex align-items-center text-muted small mb-2">
+                                <i class="far fa-calendar-alt me-2"></i> 28/05/2026
+                                <i class="far fa-eye ms-3 me-2"></i> 950 lượt xem
+                            </div>
+                            <h5 class="card-title fw-bold" style="line-height: 1.4;">
+                                <a href="javascript:void(0)" class="news-title-link">Top 5 món ngon hải sản độc lạ phải thử khi ghé thăm Duyên Hải</a>
+                            </h5>
+                            <p class="card-text text-muted small" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Khám phá danh sách những đặc sản nức tiếng vùng biển duyên hải từ chù ụ rang me béo ngậy, tôm sú oxy cho đến nghêu hai vòi ngọt lịm ngọt thịt...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 reveal-card">
+                    <div class="card news-card news-card-clickable h-100"
+                         data-title="Hoàn thành nâng cấp tuyến đường giao thông kết nối khu du lịch Ba Động"
+                         data-date="15/05/2026"
+                         data-views="1,120"
+                         data-image="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1200&q=80"
+                         data-content="<p>Dự án cải tạo cảnh quan đê biển và hạ tầng giao thông chính thức hoàn thiện giúp hành trình di chuyển của xe du lịch lớn trở nên an toàn, thuận tiện hơn.</p><p>Tuyến đường huyết mạch nối từ Quốc lộ 53 (đoạn qua thị xã Duyên Hải) kéo thẳng ra khu vực bãi biển đã được trải nhựa mới hoàn toàn, mở rộng lộ giới và trang bị hệ thống đèn chiếu sáng năng lượng mặt trời dọc hai bên đường.</p><p>Việc nâng cấp này không chỉ rút ngắn thời gian di chuyển mà còn tạo cảnh quan xanh - sạch - đẹp, thúc đẩy tiềm năng phát triển du lịch bền vững cho địa phương.</p>">
+                        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=600&q=80" class="news-img card-img-top" alt="Tin tức cơ sở hạ tầng">
+                        <div class="card-body p-4 text-start">
+                            <div class="d-flex align-items-center text-muted small mb-2">
+                                <i class="far fa-calendar-alt me-2"></i> 15/05/2026
+                                <i class="far fa-eye ms-3 me-2"></i> 1,120 lượt xem
+                            </div>
+                            <h5 class="card-title fw-bold" style="line-height: 1.4;">
+                                <a href="javascript:void(0)" class="news-title-link">Hoàn thành nâng cấp tuyến đường giao thông kết nối khu du lịch Ba Động</a>
+                            </h5>
+                            <p class="card-text text-muted small" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Dự án cải tạo cảnh quan đê biển và hạ tầng giao thông chính thức hoàn thiện giúp hành trình di chuyển của xe du lịch lớn trở nên an toàn, thuận tiện hơn...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="activities" class="travel-section bg-light-blue" style="overflow: hidden;">
+        <div class="container text-center">
+            <h2 class="section-title mb-3">Trải Nghiệm Đáng Thử</h2>
+            <p class="text-muted mb-5">Đến Ba Động không chỉ để ngắm, hãy hòa mình vào các hoạt động đầy thú vị.</p>
+
+            <div class="row align-items-center mb-5 justify-content-center slide-from-right">
+                <div class="col-md-5 text-start">
+                    <h4>Săn ảnh kỷ niệm tại những góc chụp "vô cực"</h4>
+                    <p>Với hệ thống tuabin gió khổng lồ mọc lên giữa biển, cánh đồng điện gió kế cận biển Ba Động mang một vẻ đẹp say đắm lòng người, mang lại cho bạn những bức ảnh lưu niệm tuyệt mỹ, lưu giữ trọn vẹn những khoảnh khắc đáng nhớ.</p>
+                </div>
+                <div class="col-md-5">
+                    <img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?q=80&w=600" class="experience-img img-fluid" alt="Lưu niệm">
+                </div>
+            </div>
+
+            <div class="row align-items-center mb-5 flex-row-reverse justify-content-center slide-from-left">
+                <div class="col-md-5 text-start">
+                    <h4>Đón gió biển và tản bộ trên cát mịn</h4>
+                    <p>Bờ biển Ba Động có đặc thù là bãi cát dài ngút ngàn. Đi dạo trên nền cát dưới bóng mát của rặng phi lao, hít hà mùi mặn mòi của gió biển sẽ giúp đánh bay mọi áp lực thường nhật.</p>
+                </div>
+                <div class="col-md-5">
+                    <img src="https://images.unsplash.com/photo-1506477331477-33d5d8b3dc85?q=80&w=600" class="experience-img img-fluid" alt="Tản bộ">
+                </div>
+            </div>
+
+            <div class="row align-items-center justify-content-center slide-from-right">
+                <div class="col-md-5 text-start">
+                    <h4>Thưởng thức hải sản bên bờ biển</h4>
+                    <p>Ngồi bên bãi biển lộng gió, vừa nghe sóng vỗ rì rào vừa thưởng thức những món hải sản tươi rói được chế biến tại chỗ là một trải nghiệm trọn vẹn không thể bỏ qua khi đến Ba Động.</p>
+                </div>
+                <div class="col-md-5">
+                    <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?q=80&w=600" class="experience-img img-fluid" alt="Thưởng thức hải sản">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cuisine" class="travel-section">
+        <div class="container text-center">
+            <h2 class="section-title mb-3">Tinh Hoa Ẩm Thực Vùng Biển</h2>
+            <p class="text-muted mb-5">Thưởng thức những món ăn sản vật độc đáo chỉ có tại địa phương.</p>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="food-card">
+                        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=500" class="food-img" alt="Chù khú rang me">
+                        <div class="food-body text-start">
+                            <h5>Chù Khú Rang Me</h5>
+                            <p class="card-text text-muted">Món hải sản độc đáo thuộc họ cua, có vị ngọt đậm đà xào cùng sốt me chua ngọt tạo nên hương vị khó quên.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="food-card">
+                        <img src="https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?q=80&w=500" class="food-img" alt="Hải sản tươi sống">
+                        <div class="food-body text-start">
+                            <h5>Hải Sản Duyên Hải</h5>
+                            <p class="card-text text-muted">Các loại nghêu, sò huyết, tôm sú được đánh bắt ngay trong ngày, tươi ngon chắc thịt vô cùng hấp dẫn.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="food-card">
+                        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=500" class="food-img" alt="Khu chợ bán đặc sản địa phương">
+                        <div class="food-body text-start">
+                            <h5>Đặc Sản Trà Vinh Làm Quà</h5>
+                            <p class="card-text text-muted">Đừng quên thưởng thức và mua bánh tét Trà Cuôn trứ danh hoặc dừa sáp béo ngậy mang về tặng người thân.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="guide" class="travel-section bg-light-blue">
+        <div class="container">
+            <h2 class="section-title text-center mb-3">Cẩm Nang Bỏ Túi</h2>
+            <p class="text-muted text-center mb-5">Một số thông tin hữu ích giúp chuyến đi của bạn trọn vẹn hơn.</p>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="accordionGuide">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Thời điểm nào đi biển Ba Động đẹp nhất?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionGuide">
+                                <div class="accordion-body">
+                                    Bạn nên ghé thăm Ba Động vào mùa khô (từ tháng 10 đến tháng 4 năm sau). Thời điểm này biển êm, gió nhẹ, trời trong xanh cực kỳ thích hợp cho các hoạt động tham quan ngoài trời.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Hướng dẫn di chuyển đến biển Ba Động?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionGuide">
+                                <div class="accordion-body">
+                                    Từ trung tâm thành phố Trà Vinh, bạn di chuyển theo Quốc lộ 53 về hướng Đông Nam khoảng 55km để đến thị xã Duyên Hải, sau đó đi tiếp theo biển chỉ dẫn chạy thẳng ra khu du lịch Ba Động. Đường đi rất thông thoáng và dễ đi cho cả xe máy lẫn ô tô.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div class="modal fade" id="newsDetailModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+        <div class="modal-content border-0 shadow-lg" style="border-radius: 15px; overflow: hidden; position: relative;">
+
+            <button type="button" class="btn-close btn-close-custom" data-bs-dismiss="modal" aria-label="Close"></button>
+
+            <div class="modal-body p-0">
+                <img id="detailImage" src="" alt="News Cover" style="width: 100%; height: 350px; object-fit: cover; display: block;">
+
+                <div class="p-4 p-md-5">
+                    <div class="d-flex align-items-center text-muted small mb-3">
+                        <span class="badge bg-warning text-dark me-3 py-1 px-2">Tin Tức</span>
+                        <i class="far fa-calendar-alt me-2"></i> <span id="detailDate"></span>
+                        <i class="far fa-eye ms-4 me-2"></i> <span id="detailViews"></span> lượt xem
+                    </div>
+
+                    <h3 id="detailTitle" class="fw-bold mb-4" style="color: #2c3e50; line-height: 1.5;"></h3>
+
+                    <div id="detailContent" style="line-height: 1.8; color: #555; font-size: 1.05rem;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const animatedElements = document.querySelectorAll('.reveal-card, .slide-from-right, .slide-from-left');
+
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                        scrollObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "-20px 0px"
+            });
+
+            if (animatedElements.length > 0) {
+                animatedElements.forEach(element => scrollObserver.observe(element));
+            }
+        });
+
+        $(document).ready(function () {
+            if (document.getElementById('newsDetailModal')) {
+                var detailModal = new bootstrap.Modal(document.getElementById('newsDetailModal'));
+
+                $('.news-card-clickable').on('click', function () {
+
+                    var title = $(this).data('title');
+                    var date = $(this).data('date');
+                    var views = $(this).data('views');
+                    var image = $(this).data('image');
+                    var content = $(this).data('content');
+
+                    $('#detailTitle').text(title);
+                    $('#detailDate').text(date);
+                    $('#detailViews').text(views);
+                    $('#detailImage').attr('src', image);
+                    $('#detailContent').html(content);
+
+                    detailModal.show();
+                });
+            }
+        });
+    </script>
+}

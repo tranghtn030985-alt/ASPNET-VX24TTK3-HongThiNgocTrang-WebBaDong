@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Hệ Thống Quản Trị TVU-Ba Động</title>
+    @Styles.Render("~/Content/css")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .admin-wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .admin-sidebar {
+            width: 260px;
+            background: #2c3e50;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            position: fixed; /* Giữ cố định sidebar nếu cuộn trang */
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .sidebar-brand {
+            padding: 25px 20px;
+            background: #1a252f;
+            text-align: center;
+            font-size: 1.15rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Khối chứa Menu chính chiếm toàn bộ khoảng trống còn lại */
+        .sidebar-menu-wrapper {
+            flex: 1;
+            overflow-y: auto; /* Tự động tạo thanh cuộn nhỏ nếu menu quá dài */
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+            .sidebar-menu li a {
+                display: block;
+                padding: 15px 20px;
+                color: #ecf0f1;
+                text-decoration: none;
+                transition: all 0.3s;
+            }
+
+                .sidebar-menu li a:hover, .sidebar-menu li.active a {
+                    background: #34495e;
+                    color: #ffc107;
+                    border-left: 4px solid #ffc107;
+                }
+
+        /* Khối Đăng xuất được đẩy xuống sát đáy */
+        .sidebar-footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: #1a252f;
+        }
+
+            .sidebar-footer a {
+                display: block;
+                padding: 20px;
+                color: #ff8484 !important;
+                text-decoration: none;
+                transition: all 0.3s;
+            }
+
+                .sidebar-footer a:hover {
+                    background: #c0392b;
+                    color: #fff !important;
+                }
+
+        /* Bù lại khoảng trống 260px do sidebar bị fixed */
+        .admin-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin-left: 260px;
+        }
+
+        .admin-navbar {
+            background: #fff;
+            padding: 15px 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .main-body {
+            padding: 30px;
+            flex: 1;
+        }
+
+        .card-custom {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-wrapper">
+        <nav class="admin-sidebar">
+            <div class="sidebar-brand">
+                <i class="fa-solid fa-user-shield me-2"></i>TVU ADMIN
+            </div>
+
+            <div class="sidebar-menu-wrapper">
+                <ul class="sidebar-menu">
+                    <li class="active">
+                        <a href="@Url.Action("NewsManagement", "Admin")">
+                            <i class="fa-solid fa-newspaper me-2"></i>Quản lý Tin tức
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-footer">
+                <a href="@Url.Action("Logout", "Admin")" class="fw-bold text-center">
+                    <i class="fa-solid fa-right-from-bracket me-2"></i>Đăng xuất
+                </a>
+            </div>
+        </nav>
+
+        <div class="admin-content">
+            <header class="admin-navbar">
+                <h5></h5>
+                <div class="user-info fw-bold text-dark">
+                    <i class="fa-solid fa-circle-user text-warning me-1"></i> Admin: Hồng Thị Ngọc Trang
+                </div>
+            </header>
+
+            <main class="main-body">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
