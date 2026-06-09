@@ -1,4 +1,5 @@
-﻿using System;
+﻿using du_lich_bien_ba_dong.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,15 @@ namespace du_lich_bien_ba_dong.Controllers
 {
     public class HomeController : Controller
     {
+        BienBaDongDbContext _db;
+        public HomeController()
+        {
+            _db = new BienBaDongDbContext();
+        }
         public ActionResult Index()
         {
-            return View();
+            List<TinTuc> t = _db.TinTucs.ToList();
+            return View(t);
         }
 
         public ActionResult About()

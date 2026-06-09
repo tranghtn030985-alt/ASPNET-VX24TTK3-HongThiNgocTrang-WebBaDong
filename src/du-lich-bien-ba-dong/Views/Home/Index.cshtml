@@ -3,7 +3,7 @@
 }
 
 <link rel="stylesheet" href="@Url.Content("~/Views/Home/home.css")" />
-
+@model List<du_lich_bien_ba_dong.Models.TinTuc>
 <main>
     <section id="home">
         <div id="homeCarousel" class="carousel slide carousel-fade h-100" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="false">
@@ -65,68 +65,31 @@
             <p class="text-muted mb-5">Cập nhật tin tức sự kiện, lễ hội và thông tin hoạt động mới nhất tại Biển Ba Động.</p>
 
             <div class="row g-4">
-                <div class="col-md-4 reveal-card">
-                    <div class="card news-card news-card-clickable h-100"
-                         data-title="Khai mạc tuần lễ văn hóa ẩm thực và du lịch biển Ba Động 2026"
-                         data-date="01/06/2026"
-                         data-views="1,420"
-                         data-image="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80"
-                         data-content="<p>Chuỗi hoạt động văn hóa thể thao và hội chợ thương mại đặc sắc chính thức khai mạc, hứa hẹn thu hút hàng ngàn du khách thập phương đổ về Trà Vinh dịp hè này.</p><p>Sự kiện bao gồm các gian hàng trưng bày sản phẩm OCOP địa phương, hội thi ẩm thực các món ngon từ hải sản Duyên Hải và đêm nhạc hội hoành tráng trên bãi biển.</p><strong>Thời gian diễn ra:</strong> Từ 01/06/2026 đến hết 07/06/2026.<br><strong>Địa điểm:</strong> Quảng trường trung tâm Khu du lịch biển Ba Động.">
-                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" class="news-img card-img-top" alt="Tin tức lễ hội">
-                        <div class="card-body p-4 text-start">
-                            <div class="d-flex align-items-center text-muted small mb-2">
-                                <i class="far fa-calendar-alt me-2"></i> 01/06/2026
-                                <i class="far fa-eye ms-3 me-2"></i> 1,420 lượt xem
+                @{ foreach (var item in Model)
+                    {
+                        <div class="col-md-4 reveal-card">
+                            <div class="card news-card news-card-clickable h-100"
+                                 data-title="@item.TieuDe"
+                                 data-date="@item.NgayBatDau.ToString("dd/MM/yyyy")"
+                                 data-views="@item.LuotXem.ToString("#,#")"
+                                 data-image="@item.HinhAnhUrl"
+                                 data-content="@Html.Raw(@item.BanTin)">
+                                <img src="@item.HinhAnhUrl" class="news-img card-img-top" alt="@item.TieuDe">
+                                <div class="card-body p-4 text-start">
+                                    <div class="d-flex align-items-center text-muted small mb-2">
+                                        <i class="far fa-calendar-alt me-2"></i> @item.NgayBatDau.ToString("dd/MM/yyyy")
+                                        <i class="far fa-eye ms-3 me-2"></i> @item.LuotXem.ToString("#,#") lượt xem
+                                    </div>
+                                    <h5 class="card-title fw-bold" style="line-height: 1.4;">
+                                        <a href="javascript:void(0)" class="news-title-link">@item.TomTat</a>
+                                    </h5>
+                                    <p class="card-text text-muted small" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">@Html.Raw(@item.BanTin)</p>
+                                </div>
                             </div>
-                            <h5 class="card-title fw-bold" style="line-height: 1.4;">
-                                <a href="javascript:void(0)" class="news-title-link">Khai mạc tuần lễ văn hóa ẩm thực và du lịch biển Ba Động 2026</a>
-                            </h5>
-                            <p class="card-text text-muted small" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Chuỗi hoạt động văn hóa thể thao và hội chợ thương mại đặc sắc chính thức khai mạc, hứa hẹn thu hút hàng ngàn du khách thập phương đổ về Trà Vinh dịp hè này...</p>
                         </div>
-                    </div>
-                </div>
+                    }
+                }
 
-                <div class="col-md-4 reveal-card">
-                    <div class="card news-card news-card-clickable h-100"
-                         data-title="Top 5 món ngon hải sản độc lạ phải thử khi ghé thăm Duyên Hải"
-                         data-date="28/05/2026"
-                         data-views="950"
-                         data-image="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80"
-                         data-content="<p>Khám phá danh sách những đặc sản nức tiếng vùng biển duyên hải từ chù ụ rang me béo ngậy, tôm sú oxy cho đến nghêu hai vòi ngọt lịm ngọt thịt.</p><ul><li><strong>Chù ụ rang me:</strong> Món ăn độc quyền chỉ có tại Trà Vinh với vỏ giòn rụm, thịt chắc nịch hòa quyện vị chua ngọt.</li><li><strong>Nghêu hấp sả:</strong> Nghêu Ba Động nổi tiếng với kích thước lớn, thịt dày và ngọt nước tự nhiên.</li><li><strong>Tôm sú nướng mọi:</strong> Bắt trực tiếp từ vuông tôm của người dân địa phương.</li></ul><p>Hãy lưu lại danh sách này để chuyến đi của bạn thêm phần trọn vẹn hương vị biển cả nhé!</p>">
-                        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=600&q=80" class="news-img card-img-top" alt="Tin tức đặc sản">
-                        <div class="card-body p-4 text-start">
-                            <div class="d-flex align-items-center text-muted small mb-2">
-                                <i class="far fa-calendar-alt me-2"></i> 28/05/2026
-                                <i class="far fa-eye ms-3 me-2"></i> 950 lượt xem
-                            </div>
-                            <h5 class="card-title fw-bold" style="line-height: 1.4;">
-                                <a href="javascript:void(0)" class="news-title-link">Top 5 món ngon hải sản độc lạ phải thử khi ghé thăm Duyên Hải</a>
-                            </h5>
-                            <p class="card-text text-muted small" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Khám phá danh sách những đặc sản nức tiếng vùng biển duyên hải từ chù ụ rang me béo ngậy, tôm sú oxy cho đến nghêu hai vòi ngọt lịm ngọt thịt...</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 reveal-card">
-                    <div class="card news-card news-card-clickable h-100"
-                         data-title="Hoàn thành nâng cấp tuyến đường giao thông kết nối khu du lịch Ba Động"
-                         data-date="15/05/2026"
-                         data-views="1,120"
-                         data-image="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1200&q=80"
-                         data-content="<p>Dự án cải tạo cảnh quan đê biển và hạ tầng giao thông chính thức hoàn thiện giúp hành trình di chuyển của xe du lịch lớn trở nên an toàn, thuận tiện hơn.</p><p>Tuyến đường huyết mạch nối từ Quốc lộ 53 (đoạn qua thị xã Duyên Hải) kéo thẳng ra khu vực bãi biển đã được trải nhựa mới hoàn toàn, mở rộng lộ giới và trang bị hệ thống đèn chiếu sáng năng lượng mặt trời dọc hai bên đường.</p><p>Việc nâng cấp này không chỉ rút ngắn thời gian di chuyển mà còn tạo cảnh quan xanh - sạch - đẹp, thúc đẩy tiềm năng phát triển du lịch bền vững cho địa phương.</p>">
-                        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=600&q=80" class="news-img card-img-top" alt="Tin tức cơ sở hạ tầng">
-                        <div class="card-body p-4 text-start">
-                            <div class="d-flex align-items-center text-muted small mb-2">
-                                <i class="far fa-calendar-alt me-2"></i> 15/05/2026
-                                <i class="far fa-eye ms-3 me-2"></i> 1,120 lượt xem
-                            </div>
-                            <h5 class="card-title fw-bold" style="line-height: 1.4;">
-                                <a href="javascript:void(0)" class="news-title-link">Hoàn thành nâng cấp tuyến đường giao thông kết nối khu du lịch Ba Động</a>
-                            </h5>
-                            <p class="card-text text-muted small" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Dự án cải tạo cảnh quan đê biển và hạ tầng giao thông chính thức hoàn thiện giúp hành trình di chuyển của xe du lịch lớn trở nên an toàn, thuận tiện hơn...</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

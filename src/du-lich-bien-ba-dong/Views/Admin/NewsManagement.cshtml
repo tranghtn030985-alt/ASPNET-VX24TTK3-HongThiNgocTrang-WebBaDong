@@ -2,7 +2,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
     ViewBag.Title = "Quản Lý Tin Tức Du Lịch";
 }
-
+@model List<du_lich_bien_ba_dong.Models.TinTuc>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
 <link rel="stylesheet" href="@Url.Content("~/Views/Admin/admin.css")">
@@ -11,7 +11,7 @@
     <div class="col-md-4">
         <div class="card card-custom p-3 bg-white border-start border-warning border-4">
             <div class="text-muted small text-uppercase fw-bold">Tổng số bài viết</div>
-            <div class="h3 fw-bold mt-1 text-dark">2</div>
+            <div class="h3 fw-bold mt-1 text-dark">@Model.Count</div>
         </div>
     </div>
 </div>
@@ -37,23 +37,29 @@
                 </thead>
                 <tbody>
                     <!-- Dòng 1: Tin tức dạng SỰ KIỆN (Có ngày bắt đầu/kết thúc) -->
-                    <tr>
-                        <td>
-                            <img src="/UploadedFiles/sample1.jpg" class="rounded" style="width: 60px; height: 40px; object-fit: cover;" onerror="this.src='https://placehold.co/60x40?text=No+Image'" />
-                        </td>
-                        <td>
-                            <div class="fw-bold text-dark text-wrap">Khai mạc tuần lễ văn hóa ẩm thực và du lịch biển Ba Động 2026</div>
-                            <small class="text-muted text-wrap d-block mt-1">Chuỗi hoạt động văn hóa thể thao và hội chợ thương mại đặc sắc chính thức khai mạc...</small>
-                        </td>
-                        <td>01/06/2026</td>
-                        <td><span class="badge bg-secondary px-2 py-1.5">1,420</span></td>
-                        <td class="text-end">
-                            <button class="btn btn-sm btn-outline-primary me-1" onclick="openEditModal(1, 'Khai mạc tuần lễ văn hóa ẩm thực và du lịch biển Ba Động 2026', 'Chuỗi hoạt động văn hóa thể thao và hội chợ thương mại đặc sắc chính thức khai mạc...', '/UploadedFiles/sample1.jpg', '2026-06-01', '2026-06-07', 'Nội dung chi tiết đầy đủ của bài viết về tuần lễ văn hóa ẩm thực và du lịch biển Ba Động năm 2026...')"><i class="fa-solid fa-pen"></i> Sửa</button>
-                            <button class="btn btn-sm btn-outline-danger" onclick="confirmDelete(1)"><i class="fa-solid fa-trash"></i> Xóa</button>
-                        </td>
-                    </tr>
+                    @{ foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <img src="@item.HinhAnhUrl" class="rounded" style="width: 60px; height: 40px; object-fit: cover;" onerror="this.src='https://placehold.co/60x40?text=No+Image'" />
+                                </td>
+                                <td>
+                                    <div class="fw-bold text-dark text-wrap">@item.TieuDe</div>
+                                    <small class="text-muted text-wrap d-block mt-1">@item.TomTat</small>
+                                </td>
+                                <td>@item.NgayBatDau.ToString("dd/MM/yyyy")</td>
+                                <td><span class="badge bg-secondary px-2 py-1.5">@item.LuotXem.ToString("#,#")</span></td>
+                                <td class="text-end">
+                                    <button class="btn btn-sm btn-outline-primary me-1" onclick="openEditModal(@item.TinTucId,'@item.TomTat', '@item.TieuDe', '@item.HinhAnhUrl', '@item.NgayBatDau.ToString("yyyy-MM-dd")', '@item.NgayKetThuc.ToString("yyyy-MM-dd")', '@item.BanTin')"><i class="fa-solid fa-pen"></i> Sửa</button>
+                                    <button class="btn btn-sm btn-outline-danger" onclick="confirmDelete(@item.TinTucId)"><i class="fa-solid fa-trash"></i> Xóa</button>
+                                </td>
+                            </tr>
+                        }
+                    }
+
+
                     <!-- Dòng 2: Tin tức THƯỜNG (Bỏ trống ngày bắt đầu/kết thúc) -->
-                    <tr>
+                    <!--<tr>
                         <td>
                             <img src="/UploadedFiles/sample2.jpg" class="rounded" style="width: 60px; height: 40px; object-fit: cover;" onerror="this.src='https://placehold.co/60x40?text=No+Image'" />
                         </td>
@@ -67,7 +73,7 @@
                             <button class="btn btn-sm btn-outline-primary me-1" onclick="openEditModal(2, 'Top 5 món ngon hải sản độc lạ phải thử khi ghé thăm Duyên Hải', 'Khám phá danh sách những đặc sản nức tiếng vùng biển duyên hải từ chù ụ rang me...', '/UploadedFiles/sample2.jpg', '', '', 'Nội dung chi tiết cẩm nang ăn uống ẩm thực tại vùng biển Duyên Hải với các món hải sản độc lạ...')"><i class="fa-solid fa-pen"></i> Sửa</button>
                             <button class="btn btn-sm btn-outline-danger" onclick="confirmDelete(2)"><i class="fa-solid fa-trash"></i> Xóa</button>
                         </td>
-                    </tr>
+                    </tr>-->
                 </tbody>
             </table>
         </div>
@@ -84,28 +90,28 @@
             </div>
             <form id="newsForm" enctype="multipart/form-data">
                 <div class="modal-body">
-                    <input type="hidden" id="newsId" name="Id" value="" />
+                    <input type="hidden" id="newsId" name="TinTucId" value="" />
 
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Tiêu đề bài viết <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="newsTitle" name="Title" required placeholder="Nhập tiêu đề hấp dẫn để quảng bá du lịch...">
+                        <input type="text" class="form-control" id="newsTitle" name="TieuDe" required placeholder="Nhập tiêu đề hấp dẫn để quảng bá du lịch...">
                     </div>
 
                     <!-- Cập nhật: Thêm chữ (Tùy chọn) và không có thuộc tính required -->
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label class="form-label fw-semibold">Ngày bắt đầu sự kiện</label>
-                            <input type="date" class="form-control" id="newsStartDate" name="StartDate">
+                            <input type="date" class="form-control" id="newsStartDate" name="NgayBatDau">
                         </div>
                         <div class="col-md-6">
                             <label class="form-label fw-semibold">Ngày kết thúc sự kiện</label>
-                            <input type="date" class="form-control" id="newsEndDate" name="EndDate">
+                            <input type="date" class="form-control" id="newsEndDate" name="NgayKetThuc">
                         </div>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Hình ảnh <span class="text-danger">*</span></label>
-                        <input type="file" class="form-control" id="newsImageFile" name="ImageFile" accept="image/*" onchange="previewImage(this)">
+                        <input type="file" class="form-control" id="newsImageFile" name="image" accept="image/*" onchange="previewImage(this)">
 
                         <div class="preview-img-container mt-2" id="previewContainer" style="display: none;">
                             <small class="text-muted d-block mb-1">Ảnh hiển thị:</small>
@@ -115,12 +121,12 @@
 
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Mô tả tóm tắt nội dung <span class="text-danger">*</span></label>
-                        <textarea class="form-control" id="newsSummary" name="Summary" rows="3" required placeholder="Viết một đoạn tóm tắt ngắn hiển thị ngoài danh sách bài viết..."></textarea>
+                        <textarea class="form-control" id="newsSummary" name="TomTat" rows="3" required placeholder="Viết một đoạn tóm tắt ngắn hiển thị ngoài danh sách bài viết..."></textarea>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Nội dung chi tiết bài viết <span class="text-danger">*</span></label>
-                        <textarea class="form-control" id="newsContent" name="Content" rows="7" required placeholder="Nhập toàn bộ nội dung chi tiết bài viết tại đây..."></textarea>
+                        <textarea class="form-control" id="newsContent" name="BanTin" rows="7" required placeholder="Nhập toàn bộ nội dung chi tiết bài viết tại đây..."></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
